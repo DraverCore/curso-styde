@@ -15,15 +15,9 @@ NOTAS PERSONALES:
         LAS RUTAS SE LEEN EN EL ORDEN EN QUE ESTAN ORDENADAS
 */
 
-Route::get('/', function () {
-    return view('welcome');
-    //return "Home";
-});
+Route::get('/', 'UserController@welcome');
 
-Route::get('/usuarios', function () {
-    //return view('welcome');
-    return "Usuarios";
-});
+Route::get('/usuarios', 'UserController@index');
 
 //EJEMPLOS: Enviar valores mediante GET
 /*Route::get('/usuarios/detalles', function () {
@@ -32,21 +26,11 @@ Route::get('/usuarios', function () {
 });*/
 
 //EJEMPLOS: Enviar valores parametro Dinamico
-Route::get('/usuarios/nuevo', function () {
-    // return 'Mostrando detalles del usuario '.$id;
-    return "Crear nuevo usuario";
-});
+Route::get('/usuarios/nuevo', 'UserController@create');
 
 //EJEMPLOS: Enviar valores parametro Dinamico
-Route::get('/usuarios/{id}', function ($id) {
-    // return 'Mostrando detalles del usuario '.$id;
-    return "Mostrando detalle del usuario {$id}";
-})->where('id', '[0-9]+');
+Route::get('/usuarios/{id}', 'UserController@show')
+    ->where('id', '[0-9]+');
 
 //EJEMPLOS: El "?" permite que la variable pueda o no existir
-Route::get('/saludo/{nombre}/{nickname?}', function ($nombre, $nickname = null) {
-    if (empty($nickname) != true)
-    return "Tu nombre es {$nombre} y tu apodo es {$nickname}";
-    else
-    return "Tu nombre es {$nombre} y no tienes apodo";
-});
+Route::get('/saludo/{nombre}/{nickname?}', 'WelcomeUserController');
