@@ -16,13 +16,13 @@ NOTAS PERSONALES:
 */
 
 Route::get('/', function () {
-    //return view('welcome');
-    return "¿Hola qué haces?";
+    return view('welcome');
+    //return "Home";
 });
 
 Route::get('/usuarios', function () {
     //return view('welcome');
-    return "usuarios";
+    return "Usuarios";
 });
 
 //EJEMPLOS: Enviar valores mediante GET
@@ -32,16 +32,16 @@ Route::get('/usuarios', function () {
 });*/
 
 //EJEMPLOS: Enviar valores parametro Dinamico
-Route::get('/usuarios/{id}', function ($id) {
-    // return 'Mostrando detalles del usuario '.$id;
-    return "Mostrando detalles del usuario {$id}";
-})->where('id', '[0-9]+');
-
-//EJEMPLOS: Enviar valores parametro Dinamico
 Route::get('/usuarios/nuevo', function () {
     // return 'Mostrando detalles del usuario '.$id;
     return "Crear nuevo usuario";
 });
+
+//EJEMPLOS: Enviar valores parametro Dinamico
+Route::get('/usuarios/{id}', function ($id) {
+    // return 'Mostrando detalles del usuario '.$id;
+    return "Mostrando detalle del usuario {$id}";
+})->where('id', '[0-9]+');
 
 //EJEMPLOS: El "?" permite que la variable pueda o no existir
 Route::get('/saludo/{nombre}/{nickname?}', function ($nombre, $nickname = null) {
