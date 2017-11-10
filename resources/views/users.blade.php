@@ -6,11 +6,17 @@
     <title>Listado de Usuarios</title>
 </head>
 <body>
-    <h1><?php echo e($title);?></h1>
+    <h1>{{$title}}</h1>
+    @if (! empty($users))
     <ul>
-        <?php foreach ($users as $user): ?>
-        <li><?php echo e($user); //Código escapado de HYML con "e" ?></li> 
-        <?php endforeach; ?>
+        @foreach ($users as $user)
+        <li>{{$user}}</li> 
+        @endforeach
     </ul>
+    @else
+    <p>No hay usuarios registrados</p>
+    @endif
+
+    {{time()}}
 </body>
 </html>
