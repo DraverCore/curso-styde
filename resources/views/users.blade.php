@@ -1,5 +1,7 @@
 @extends('layout')
 
+@section('title', "Usuarios")
+
 @section('content')
     
     <h1>{{$title}}</h1>
@@ -13,7 +15,6 @@
     <p>No hay usuarios registrados</p>
     @endif
 
-    {{time()}}
 @endsection
 
 @section ('sidebar')
