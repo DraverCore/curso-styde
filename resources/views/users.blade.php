@@ -1,11 +1,7 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Listado de Usuarios</title>
-</head>
-<body>
+@extends('layout')
+
+@section('content')
+    
     <h1>{{$title}}</h1>
     @if (! empty($users))
     <ul>
@@ -18,5 +14,12 @@
     @endif
 
     {{time()}}
-</body>
-</html>
+@endsection
+
+@section ('sidebar')
+    @parent 
+    <!--Respeta el código puesto en sidebar-->
+    <h2>Barra Lateral Personalizada (sobreescrita)</h2>
+    <!--Se sobreescribe el tento de la etiqueta H2-->
+@endsection
+    
