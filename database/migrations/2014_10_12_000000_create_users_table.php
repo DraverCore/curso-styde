@@ -15,6 +15,9 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
+            $table -> unsignedInteger('profession_id');
+            //$table -> foreign('id_profession') -> references('id') -> on('professions'); LA LLAVE SE CREARÁ DESPUES
+            //$table->string('profession', 50)->nullable()->after('password');    Eliminamos migraciones posteriores y guardo esta linea como ejemplo
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
