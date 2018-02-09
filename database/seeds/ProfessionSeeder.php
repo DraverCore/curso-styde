@@ -1,7 +1,9 @@
 <?php
 
+use App\Profession;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+
 class ProfessionSeeder extends Seeder
 {
     /**
@@ -19,7 +21,21 @@ class ProfessionSeeder extends Seeder
         //Activa revision de claves foraneas
         //DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
 
-        DB::table('professions')-> insert([
+        Profession :: create([
+            'title' => 'Desarrollador Front-End'
+        ]);
+
+        Profession :: create([
+            'title' => 'Desarrollador Back-End'
+        ]);
+
+        Profession :: create([
+            'title' => 'Wed Developer'
+        ]);
+        
+
+        //CONSTRUCTOR DE CONSULTAS DE LARAVEL
+        /*DB::table('professions')-> insert([
             'title' => 'Desarrollador Front-End'
         ]);
 
@@ -30,5 +46,6 @@ class ProfessionSeeder extends Seeder
         DB::table('professions')-> insert([
             'title' => 'Wed Developer'
         ]);
+        */
     }
 }
